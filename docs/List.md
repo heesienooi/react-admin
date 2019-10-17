@@ -873,7 +873,7 @@ const postRowClick = (id, basePath, record) => record.editable ? 'edit' : 'show'
 ```js
 import fetchUserRights from './fetchUserRights';
 
-const postRowClick = (id, basePath, record) => fetchUserRights().then(({ canEdit }) canEdit ? 'edit' : 'show');
+const postRowClick = (id, basePath, record) => fetchUserRights().then(({ canEdit }) => canEdit ? 'edit' : 'show');
 ```
 
 ### `expand`
@@ -1038,6 +1038,29 @@ const PostList = props => {
 
 export default PostList;
 ```
+
+### Performance
+
+when displaying large pages of data, you might experience some performance issues.
+This is mostly due to the fact that we iterate over the `<Datagrid>` children and clone them.
+
+In such cases, you can opt-in for an optimized version of the `<Datagrid>` by setting its `optimized` prop to `true`. 
+Be aware that you can't have dynamic children, such as those displayed or hidden by checking permissions, when using this mode.
+
+```jsx
+const PostList = props => (
+    <List {...props}>
+        <Datagrid optimized>
+            <TextField source="id" />
+            <TextField source="title" />
+            <TextField source="views" />
+        </Datagrid>
+    </List>
+);
+
+export default withStyles(styles)(PostList);
+```
+
 
 ## The `<SimpleList>` component
 

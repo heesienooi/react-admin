@@ -98,6 +98,7 @@ const AutocompleteArrayInput: FunctionComponent<
     choices = [],
     emptyText,
     emptyValue,
+    format,
     helperText,
     id: idOverride,
     input: inputOverride,
@@ -117,6 +118,7 @@ const AutocompleteArrayInput: FunctionComponent<
     } = {},
     optionText = 'name',
     optionValue = 'id',
+    parse,
     resource,
     setFilter,
     shouldRenderSuggestions: shouldRenderSuggestionsOverride,
@@ -147,6 +149,7 @@ const AutocompleteArrayInput: FunctionComponent<
         isRequired,
         meta: { touched, error },
     } = useInput({
+        format,
         id: idOverride,
         input: inputOverride,
         isRequired: isRequiredOverride,
@@ -154,6 +157,7 @@ const AutocompleteArrayInput: FunctionComponent<
         onBlur,
         onChange,
         onFocus,
+        parse,
         resource,
         source,
         validate,
@@ -198,7 +202,7 @@ const AutocompleteArrayInput: FunctionComponent<
                 setFilter(value);
             }
         },
-        [setFilter]
+        [setFilter, setFilterValue]
     );
 
     // We must reset the filter every time the value changes to ensure we
@@ -235,7 +239,7 @@ const AutocompleteArrayInput: FunctionComponent<
             setFilterValue('');
             input.onChange(newSelectedItems.map(getChoiceValue));
         },
-        [getChoiceValue, input, selectedItems]
+        [getChoiceValue, input, selectedItems, setFilterValue]
     );
 
     const handleDelete = useCallback(
@@ -290,7 +294,7 @@ const AutocompleteArrayInput: FunctionComponent<
             handleFilterChange('');
             input.onBlur(event);
         },
-        [handleFilterChange, input]
+        [handleFilterChange, input, setFilterValue]
     );
 
     const handleFocus = useCallback(
