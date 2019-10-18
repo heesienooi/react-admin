@@ -261,9 +261,9 @@ Alternately, you may need to prepopulate a record based on a *related* record. F
 
 **Note**  `<CloneButton>` is designed to be used in an edit view `<Actions>` component, not inside a `<Toolbar>`. The `Toolbar` is basically for submitting the form, not for going to another resource.
 
-By default, the `<Create>` view starts with an empty `record`. However, if the `location` object (injected by [react-router](https://reacttraining.com/react-router/web/api/location)) contains a `record` in its `state`, the `<Create>` view uses that `record` instead of the empty object. That's how the `<CloneButton>` works behind the hood.
+By default, the `<Create>` view starts with an empty `record`. However, if the `location` object (injected by [react-router-dom](https://reacttraining.com/react-router/web/api/location)) contains a `record` in its `state`, the `<Create>` view uses that `record` instead of the empty object. That's how the `<CloneButton>` works behind the hood.
 
-That means that if you want to create a link to a creation form, presetting *some* values, all you have to do is to set the location `state`. React-router provides the `<Link>` component for that:
+That means that if you want to create a link to a creation form, presetting *some* values, all you have to do is to set the location `state`. `react-router-dom` provides the `<Link>` component for that:
 
 {% raw %}
 ```jsx
@@ -832,7 +832,7 @@ Here are the props received by the `Toolbar` component when passed as the `toolb
 
 **Tip**: Don't forget to also set the `redirect` prop of the Form component to handle submission by the `ENTER` key.
 
-**Tip**: To alter the form values before submitting, you should use the `handleSubmit` prop. See [Altering the Form Values before Submitting](./Actions.md#altering-the-form-values-before-submitting) for more information and examples.
+**Tip**: To alter the form values before submitting, you should use the `handleSubmit` prop. See [Altering the Form Values before Submitting](#altering-the-form-values-before-submitting) for more information and examples.
 
 ## Variant
 
@@ -951,7 +951,7 @@ export const UserEdit = ({ permissions, ...props }) =>
 ## Altering the Form Values before Submitting
 
 Sometimes, you may want your custom action to alter the form values before actually sending them to the `dataProvider`.
-For those cases, you should know that every button inside a form [Toolbar](/CreateEdit.md#toolbar) receive two props:
+For those cases, you should know that every button inside a form [Toolbar](#toolbar) receive two props:
 
 - `handleSubmit` which calls the default form save method
 - `handleSubmitWithRedirect` which calls the default form save method but allows to specify a custom redirection

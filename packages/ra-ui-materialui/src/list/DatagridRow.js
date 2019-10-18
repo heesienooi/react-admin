@@ -16,7 +16,7 @@ import isEqual from 'lodash/isEqual';
 
 import DatagridCell from './DatagridCell';
 import ExpandRowButton from './ExpandRowButton';
-import { useHistory } from 'react-router';
+import { useHistory } from 'react-router-dom';
 
 const computeNbColumns = (expand, children, hasBulkActions) =>
     expand
@@ -134,7 +134,7 @@ const DatagridRow = ({
                     </TableCell>
                 )}
                 {hasBulkActions && (
-                    <TableCell padding="none">
+                    <TableCell padding="checkbox">
                         <Checkbox
                             color="primary"
                             className={`select-item ${classes.checkbox}`}
@@ -152,9 +152,6 @@ const DatagridRow = ({
                                 classes.rowCell
                             )}
                             record={record}
-                            padding={
-                                !!expand || hasBulkActions ? 'none' : undefined
-                            }
                             {...{ field, basePath, resource }}
                         />
                     ) : null

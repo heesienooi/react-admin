@@ -217,7 +217,7 @@ See the [Theming documentation](./Theming.md#using-a-custom-menu) for more detai
 
 ## `theme`
 
-Material UI supports [theming](http://material-ui.com/customization/themes). This lets you customize the look and feel of an admin by overriding fonts, colors, and spacing. You can provide a custom material ui theme by using the `theme` prop:
+Material UI supports [theming](https://material-ui.com/customization/themes). This lets you customize the look and feel of an admin by overriding fonts, colors, and spacing. You can provide a custom material ui theme by using the `theme` prop:
 
 ```jsx
 import { createMuiTheme } from '@material-ui/core/styles';
@@ -368,7 +368,7 @@ export default App;
 
 ## `customRoutes`
 
-To register your own routes, create a module returning a list of [react-router](https://github.com/ReactTraining/react-router) `<Route>` component:
+To register your own routes, create a module returning a list of [react-router-dom](https://reacttraining.com/react-router/web/guides/quick-start) `<Route>` component:
 
 ```jsx
 // in src/customRoutes.js
