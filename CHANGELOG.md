@@ -1,8 +1,16 @@
 # Changelog
 
-## v3.0.0-beta.2
+## v3.0.0-beta.3
 
-* Fix `<Datagrid>` has no padding when disabling bulk actions ([3840](https://github.com/marmelab/react-admin/pull/3840)) ([fzaninotto](https://github.com/fzaninotto))
+* Fix typos and anchors in the docs. ([3860](https://github.com/marmelab/react-admin/pull/3860)) ([WiXSL](https://github.com/WiXSL))
+* Fix `<Datagrid>` is not sortable when used inside `<ReferenceManyField>` ([3859](https://github.com/marmelab/react-admin/pull/3859)) ([fzaninotto](https://github.com/fzaninotto))
+* Fix `<AutocompleteInput>` error message color ([3857](https://github.com/marmelab/react-admin/pull/3857)) ([fzaninotto](https://github.com/fzaninotto))
+* Fix `<AutocompleteInput>` does not use custom label ([3855](https://github.com/marmelab/react-admin/pull/3855)) ([fzaninotto](https://github.com/* fzaninotto))([3852](https://github.com/marmelab/react-admin/pull/3852)) ([fzaninotto](https://github.com/fzaninotto))
+* Fix missing `@testing-library/react` dependency([3851](https://github.com/marmelab/react-admin/pull/3851)) ([zyhou](https://github.com/zyhou))
+
+## v3.0.0-beta.2
+ 
+ * Fix `<Datagrid>` has no padding when disabling bulk actions ([3840](https://github.com/marmelab/react-admin/pull/3840)) ([fzaninotto](https://github.com/fzaninotto))
 * Fix anchors and uris in the docs. ([3838](https://github.com/marmelab/react-admin/pull/3838)) ([WiXSL](https://github.com/WiXSL))
 * [BC Break] Remove `ra-tree` ([3836](https://github.com/marmelab/react-admin/pull/3836)) ([fzaninotto](https://github.com/fzaninotto))
 * Fix JSDocs errors ([3829](https://github.com/marmelab/react-admin/pull/3829)) ([WiXSL](https://github.com/WiXSL))
@@ -28,6 +36,29 @@
 ## v3.0.0-beta.1
 
 * Failed (and unpublished) release
+
+## v2.9.8
+ 
+* Rewrite `ra-tree`. The new API isn't backwards compatible, but as ra-tree is considered a "lab" feature, we chose to release it in a minor version. ([3771](https://github.com/marmelab/react-admin/pull/3771)) ([djhi](https://github.com/djhi))
+* Add support for custom queries in `ra-data-graphql` ([3839](https://github.com/marmelab/react-admin/pull/3839)) ([djhi](https://github.com/djhi))
+* Add theme support in `FileInput` dropzone background ([3823](https://github.com/marmelab/react-admin/pull/3823)) ([despatates](https://github.com/despatates))
+* Add link to OpenID Connect advanced example ([3795](https://github.com/marmelab/react-admin/pull/3795)) ([Kmaschta](https://github.com/Kmaschta))
+* Fix react-admin dependency in secondary packages ([3791](https://github.com/marmelab/react-admin/pull/3791)) ([manelpb](https://github.com/manelpb))
+* Fix trailing slash in url breaks routing ([3788](https://github.com/marmelab/react-admin/pull/3788)) ([djhi](https://github.com/djhi))
+* Fix jsDoc in `refresh` side effect ([3780](https://github.com/marmelab/react-admin/pull/3780)) ([gillesdemey](https://github.com/gillesdemey))
+* Fix autocomplete of Password field on `LoginForm` ([3666](https://github.com/marmelab/react-admin/pull/3666)) ([UltimateForm](https://github.com/UltimateForm))
+
+## v2.9.7
+
+* Fix missing semicolons in docs ([3773](https://github.com/marmelab/react-admin/pull/3773)) ([emptyhand](https://github.com/emptyhand))
+* Fix typo in `ra-core` readme ([3772](https://github.com/marmelab/react-admin/pull/3772)) ([AlexanderOttenhoff](https://github.com/AlexanderOttenhoff))
+* Fix `dataProvider` doc uses onFailure instead of onError ([3761](https://github.com/marmelab/react-admin/pull/3761)) ([mchaffotte](https://github.com/mchaffotte))
+* Fix `Content-Type` header added for non GET requests. ([3743](https://github.com/marmelab/react-admin/pull/3743)) ([clement-escolano](https://github.com/clement-escolano))
+* Fix filter extend order in `ReferenceInputController` ([3740](https://github.com/marmelab/react-admin/pull/3740)) ([TheHyphen](https://github.com/TheHyphen))
+* Fix `TabbedForm` does not detect errors when source is a path ([3711](https://github.com/marmelab/react-admin/pull/3711)) ([djhi](https://github.com/djhi))
+* Add support for GraphQL Interface type ([3692](https://github.com/marmelab/react-admin/pull/3692)) ([MichielDeMey](https://github.com/MichielDeMey))
+* Fix typo in exporter documentation ([3675](https://github.com/marmelab/react-admin/pull/3675)) ([fzaninotto](https://github.com/fzaninotto))
+* Fix Move built-in validators documentation order ([3363](https://github.com/marmelab/react-admin/pull/3363)) ([heyfife](https://github.com/heyfife))
 
 ## v3.0.0-beta.0
 
@@ -740,7 +771,7 @@ For highlights about this version, read [the 2.3 release announcement post](http
 
 Deprecations:
 
-* `<Admin>` `menu` prop. To override the menu component, use a [custom layout](#appLayout) instead.
+* `<Admin>` `menu` prop. To override the menu component, use a [custom layout](./docs/Admin.md#layout) instead.
 * `<AppBarMobile>`. The `<AppBar>` component is now responsive.
 * `<BulkActions>`. Use `<BulkActionToolbar>` instead.
 * `<Header>`. Use `<Title>` instead.
