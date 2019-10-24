@@ -19,7 +19,7 @@ A frontend Framework for building admin applications running in the browser on t
 * Conditional formatting
 * Themeable
 * Supports any authentication provider (REST API, OAuth, Basic Auth, ...)
-* Full-featured Datagrid (sort, pagination, filters)
+* Full-featured datagrid (sort, pagination, filters)
 * Filter-as-you-type
 * Supports any form layout (simple, tabbed, etc.)
 * Custom actions
