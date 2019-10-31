@@ -18,10 +18,14 @@ const useStyles = makeStyles({
     },
     clearButton: {
         height: 24,
+        padding: 0,
         width: 0,
     },
     visibleClearButton: {
         width: 24,
+    },
+    selectAdornment: {
+        marginRight: 12,
     },
 });
 
@@ -75,6 +79,7 @@ function ResettableTextField({
     const {
         clearButton,
         clearIcon,
+        selectAdornment,
         visibleClearButton,
         visibleClearIcon,
         ...restClasses
@@ -86,7 +91,12 @@ function ResettableTextField({
             value={value}
             InputProps={{
                 endAdornment: resettable && value && (
-                    <InputAdornment position="end">
+                    <InputAdornment
+                        position="end"
+                        classes={{
+                            root: props.select ? selectAdornment : null,
+                        }}
+                    >
                         <IconButton
                             className={classNames(clearButton, {
                                 [visibleClearButton]:
