@@ -29,9 +29,11 @@ export interface QueryOptions {
 const isEmptyList = data =>
     Array.isArray(data)
         ? data.length === 0
-        : data &&
-          Object.keys(data).length === 0 &&
-          data.hasOwnProperty('fetchedAt');
+        : !!(
+              data &&
+              Object.keys(data).length === 0 &&
+              data.hasOwnProperty('fetchedAt')
+          );
 
 /**
  * Default cache selector. Allows to cache responses by default.
