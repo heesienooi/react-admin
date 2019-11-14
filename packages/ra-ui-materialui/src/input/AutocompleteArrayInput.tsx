@@ -103,6 +103,7 @@ const AutocompleteArrayInput: FunctionComponent<
     id: idOverride,
     input: inputOverride,
     isRequired: isRequiredOverride,
+    label,
     limitChoicesToValue,
     margin,
     matchSuggestion,
@@ -243,16 +244,12 @@ const AutocompleteArrayInput: FunctionComponent<
     );
 
     const handleDelete = useCallback(
-        event => {
+        item => () => {
             const newSelectedItems = [...selectedItems];
-            const value = event.target.getAttribute('data-item');
-            const item = choices.find(
-                choice => getChoiceValue(choice) == value // eslint-disable-line eqeqeq
-            );
             newSelectedItems.splice(newSelectedItems.indexOf(item), 1);
             input.onChange(newSelectedItems.map(getChoiceValue));
         },
-        [choices, getChoiceValue, input, selectedItems]
+        [input, selectedItems, getChoiceValue]
     );
 
     // This function ensures that the suggestion list stay aligned to the
@@ -305,6 +302,15 @@ const AutocompleteArrayInput: FunctionComponent<
         [input]
     );
 
+    const handleClick = useCallback(
+        openMenu => event => {
+            if (event.target === inputEl.current) {
+                openMenu(event);
+            }
+        },
+        []
+    );
+
     const shouldRenderSuggestions = val => {
         if (
             shouldRenderSuggestionsOverride !== undefined &&
@@ -346,6 +352,7 @@ const AutocompleteArrayInput: FunctionComponent<
                 } = getInputProps({
                     onBlur: handleBlur,
                     onFocus: handleFocus(openMenu),
+                    onClick: handleClick(openMenu),
                     onKeyDown: handleKeyDown,
                 });
                 return (
@@ -375,8 +382,7 @@ const AutocompleteArrayInput: FunctionComponent<
                                                 tabIndex={-1}
                                                 label={getChoiceText(item)}
                                                 className={classes.chip}
-                                                onDelete={handleDelete}
-                                                data-item={getChoiceValue(item)}
+                                                onDelete={handleDelete(item)}
                                             />
                                         ))}
                                     </div>
@@ -393,6 +399,7 @@ const AutocompleteArrayInput: FunctionComponent<
                             error={!!(touched && error)}
                             label={
                                 <FieldTitle
+                                    label={label}
                                     {...labelProps}
                                     source={source}
                                     resource={resource}
